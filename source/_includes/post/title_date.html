@@ -1,0 +1,9 @@
+{% capture date %}{% if post %}{{ post.date }}{% else %}{{ page.date }}{% endif %}{% endcapture %}
+{% capture year %}{{ date | date: "%Y" }}{% endcapture %}
+{% capture month %}{{ date | date: "%m" }}{% endcapture %}
+{% capture day %}{{ date | date: "%d" }}{% endcapture %}
+<time class="p-time" datetime="{{ date | datetime | date_to_xmlschema }}" pubdate>
+	<div class="day">{{ day }}</div>
+	<div class="month">{{month}}月</div>
+	<div class="year">{{ year }}</div>
+</time>

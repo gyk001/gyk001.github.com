@@ -1,0 +1,240 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 157.0,
+		"selected_items":
+		[
+			[
+				"onp",
+				"Octopress: New Post"
+			],
+			[
+				"n po",
+				"Octopress: New Post"
+			],
+			[
+				"ma",
+				"Markdown Preview: preview in Browser"
+			],
+			[
+				"ot",
+				"Octopress: New Post"
+			],
+			[
+				"pci",
+				"Package Control: Install Package"
+			],
+			[
+				"f",
+				"Format: Javascript"
+			],
+			[
+				"fo",
+				"Format: Javascript"
+			],
+			[
+				"for",
+				"Format: Javascript"
+			],
+			[
+				"in",
+				"Package Control: Install Package"
+			],
+			[
+				"pretty",
+				"Pretty JSON: Reformat (Pretty Print) JSON"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"set",
+				"Set Syntax: JSON"
+			],
+			[
+				"pac",
+				"Package Control: Upgrade Package"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"git",
+				"Package Control: Install Package"
+			],
+			[
+				"instll",
+				"Package Control: Install Package"
+			],
+			[
+				"mak",
+				"Markdown Preview: open Markdown Cheat sheet"
+			],
+			[
+				"set m",
+				"Set Syntax: Markdown"
+			],
+			[
+				"mark",
+				"Markdown Preview: preview in Browser"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 494.0
+	},
+	"console":
+	{
+		"height": 350.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/Guo/Workspace/gyk001.blog/.themes/gblog/sass/custom/_layout.scss",
+		"/Users/Guo/Workspace/gyk001.blog/.themes/gblog/source/index.html",
+		"/Users/Guo/Library/Application Support/Sublime Text 2/Packages/User/octopress.sublime-settings",
+		"/Users/Guo/Library/Application Support/Sublime Text 2/Packages/Octopress/README.md",
+		"/Users/Guo/Library/Application Support/Sublime Text 2/Packages/MarkdownEditing/Markdown.sublime-settings",
+		"/Users/Guo/Desktop/gist1138554-f5b716aa69c5cf9764b79c3bfea78d002dbdc5ff/Default (Linux).sublime-keymap",
+		"/Users/Guo/Desktop/Doctrine.tmtheme",
+		"/Users/Guo/Library/Application Support/Sublime Text 2/Packages/User/Side Bar.sublime-settings",
+		"/Users/Guo/Library/Application Support/Sublime Text 2/Packages/SideBarEnhancements/messages/11.13.2012.1305.0.txt",
+		"/Users/Guo/Desktop/untitled.md",
+		"/Users/Guo/Library/Application Support/Sublime Text 2/Packages/Markdown Preview/sample.md",
+		"/Users/Guo/Library/Application Support/Sublime Text 2/Packages/Color Scheme - Default/Amy.tmTheme",
+		"/Users/Guo/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/Users/Guo/Library/Application Support/Sublime Text 2/Packages/User/prettify_json.pyc",
+		"/Users/Guo/Library/Application Support/Sublime Text 2/Packages/User/tidy_xml.pyc",
+		"/Users/Guo/Library/Application Support/Sublime Text 2/Packages/User/default_file_type.sublime-settings",
+		"/Users/Guo/Library/Application Support/Sublime Text 2/Packages/User/Markdown.sublime-settings",
+		"/Users/Guo/Library/Application Support/Sublime Text 2/Packages/User/Plain text.sublime-settings"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"”",
+			"FFF"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 33.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 0.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 260.0,
+	"status_bar_visible": true
+}
