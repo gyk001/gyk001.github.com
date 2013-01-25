@@ -1,4 +1,8 @@
 @import "compass";
+html,body{
+      -webkit-text-size-adjust:none;
+}
+
 @include global-reset;
 @include reset-html5;
 
