@@ -1,4 +1,10 @@
 <script type="text/javascript" src="{{ site.jQuery}}"></script>
 <script type="text/javascript"> 
 	$j=jQuery.noConflict(); 
+	$j(function(){
+		$j('a[href^="http"]').each(function(){
+		   $j(this).attr('target', '_blank');
+		});		
+	});
+	
 </script>

@@ -14,8 +14,15 @@
       {% endif %}
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      //dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
-      dsq.src = '/javascripts/comment.js';
+      if(disqus_script === 'count.js'){
+        dsq.src = '/javascripts/comment.js';
+      }else{
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+        var dsqcount = document.createElement('script'); dsq.type = 'text/javascript'; 
+        dsqcount.async = true;
+        dsqcount.src = '/javascripts/comment.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsqcount);
+      }
       (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     }());
 

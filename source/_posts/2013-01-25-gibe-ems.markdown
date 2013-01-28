@@ -5,6 +5,7 @@ date: 2013-01-25 02:48
 comments: true
 categories: 生活
 tags: [EMS,Mac]
+slug: gibe_ems
 
 ---
 
