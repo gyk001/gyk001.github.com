@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[标签-歌词 | Do Something...]]></title>
+  <link href="http://guoyukun.cn/post/tags/歌词/atom.xml" rel="self"/>
+  <link href="http://guoyukun.cn/"/>
+  <updated>2013-01-29T06:59:57+08:00</updated>
+  <id>http://guoyukun.cn/</id>
+  <author>
+    <name><![CDATA[gyk001]]></name>
+    <email><![CDATA[gyk001@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[最美好的时光]]></title>
+    <link href="http://guoyukun.cn/post/the-best-time-in-my-life/"/>
+    <updated>2013-01-29T01:03:00+08:00</updated>
+    <id>http://guoyukun.cn/post/the-best-time-in-my-life</id>
+    <content type="html"><![CDATA[<p>我这一生最美的时光</p>
+
+<p>是听到你浅浅的吟唱</p>
+
+<p>我不必想四处漂泊去流浪</p>
+
+<p>这真正让我活着的力量</p>
+
+<p>我多希望这只是梦一场</p>
+
+<p>穿过悲喜能紧拥着不放</p>
+
+<p>握在手心你的爱化作泪光</p>
+
+<p>留给我思念孤独的想象</p>
+
+<p>你的模样</p>
+]]></content>
+  </entry>
+  
+</feed>
