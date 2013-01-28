@@ -7,6 +7,7 @@ author: gyk001
 comments: true
 categories: 生活
 tags: [Octopress]
+slug: "blog-again"
 
 ---
 

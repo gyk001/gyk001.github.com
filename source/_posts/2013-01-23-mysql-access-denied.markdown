@@ -6,7 +6,7 @@ comments: true
 categories: 数据库
 tags: [MySQL,CentOS]
 description: MySQL无法连接，报错：access denied for user
-slug: 145
+slug: mysql-access-denied
 
 ---
 

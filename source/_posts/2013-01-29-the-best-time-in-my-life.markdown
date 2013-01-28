@@ -5,6 +5,7 @@ date: 2013-01-29 01:03
 comments: true
 categories: 生活
 tags: [歌词]
+slug: "the-best-time-in-my-life"
 
 ---
 
