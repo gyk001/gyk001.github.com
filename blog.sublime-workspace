@@ -3,17 +3,37 @@
 	{
 		"selected_items":
 		[
+			[
+				"file",
+				"filename"
+			]
 		]
 	},
 	"buffers":
 	[
+		{
+			"file": "source/_includes/custom/navigation.html",
+			"settings":
+			{
+				"buffer_size": 185,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 157.0,
+		"height": 392.0,
 		"selected_items":
 		[
+			[
+				"ma",
+				"Markdown Preview: preview in Browser"
+			],
+			[
+				"pa",
+				"Package Control: Upgrade Package"
+			],
 			[
 				"onp",
 				"Octopress: New Post"
@@ -21,10 +41,6 @@
 			[
 				"n po",
 				"Octopress: New Post"
-			],
-			[
-				"ma",
-				"Markdown Preview: preview in Browser"
 			],
 			[
 				"ot",
@@ -103,7 +119,7 @@
 				"Package Control: Install Package"
 			]
 		],
-		"width": 494.0
+		"width": 575.0
 	},
 	"console":
 	{
@@ -120,6 +136,25 @@
 	},
 	"file_history":
 	[
+		"/Users/Guo/Workspace/gblog/source/post/tags/index.markdown",
+		"/Users/Guo/Workspace/gblog/Rakefile",
+		"/Users/Guo/Workspace/gblog/source/_posts/2013-01-29-the-best-time-in-my-life.markdown",
+		"/Users/Guo/Workspace/gblog/source/_posts/2013-01-25-mac-soft-and-config.markdown",
+		"/Users/Guo/Workspace/gblog/source/_posts/2013-01-23-mysql-access-denied.markdown",
+		"/Users/Guo/Workspace/gblog/source/_posts/2013-01-22-blog-again.markdown",
+		"/Users/Guo/Workspace/gblog/source/_posts/2013-01-25-gibe-ems.markdown",
+		"/Users/Guo/Workspace/gblog/_config.yml",
+		"/Users/Guo/Workspace/gblog/source/_posts/2013-01-22-again.markdown",
+		"/Users/Guo/Workspace/gblog/source/_includes/disqus.html",
+		"/Users/Guo/Workspace/gblog/source/_includes/custom/head.html",
+		"/Users/Guo/Workspace/gblog/source/_posts/2013-01-29-jiayou.markdown",
+		"/Users/Guo/Workspace/gblog/plugins/jsfiddle.rb",
+		"/Users/Guo/Workspace/gblog/plugins/octopress_filters.rb",
+		"/Users/Guo/Workspace/gblog/plugins/raw.rb",
+		"/Users/Guo/Workspace/gblog/plugins/code_block.rb",
+		"/Users/Guo/Library/Application Support/Sublime Text 2/Packages/SideBarEnhancements/Side Bar.sublime-settings",
+		"/Users/Guo/Library/Application Support/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
+		"/Users/Guo/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
 		"/Users/Guo/Workspace/gyk001.blog/.themes/gblog/sass/custom/_layout.scss",
 		"/Users/Guo/Workspace/gyk001.blog/.themes/gblog/source/index.html",
 		"/Users/Guo/Library/Application Support/Sublime Text 2/Packages/User/octopress.sublime-settings",
@@ -132,7 +167,6 @@
 		"/Users/Guo/Desktop/untitled.md",
 		"/Users/Guo/Library/Application Support/Sublime Text 2/Packages/Markdown Preview/sample.md",
 		"/Users/Guo/Library/Application Support/Sublime Text 2/Packages/Color Scheme - Default/Amy.tmTheme",
-		"/Users/Guo/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
 		"/Users/Guo/Library/Application Support/Sublime Text 2/Packages/User/prettify_json.pyc",
 		"/Users/Guo/Library/Application Support/Sublime Text 2/Packages/User/tidy_xml.pyc",
 		"/Users/Guo/Library/Application Support/Sublime Text 2/Packages/User/default_file_type.sublime-settings",
@@ -155,6 +189,12 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"ar",
+			"arch",
+			"master",
+			");\n",
+			"new_post",
+			"theme",
 			"”",
 			"FFF"
 		],
@@ -174,8 +214,35 @@
 	"groups":
 	[
 		{
+			"selected": 0,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "source/_includes/custom/navigation.html",
+					"settings":
+					{
+						"buffer_size": 185,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								108,
+								108
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -212,7 +279,7 @@
 	"menu_visible": true,
 	"replace":
 	{
-		"height": 0.0
+		"height": 64.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -220,6 +287,10 @@
 		"height": 0.0,
 		"selected_items":
 		[
+			[
+				"ra",
+				"gblog/Rakefile"
+			]
 		],
 		"width": 0.0
 	},
@@ -235,6 +306,6 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 260.0,
+	"side_bar_width": 394.0,
 	"status_bar_visible": true
 }
