@@ -1,0 +1,151 @@
+# Hexo Configuration
+## Docs: http://hexo.io/docs/configuration.html
+## Source: https://github.com/hexojs/hexo/
+
+# Site
+title: "{ Do Something }"
+subtitle: 躲在某座城，想念某个人
+description:
+author: guoyukun
+email: gyk001@gmail.com
+language: zh-CN
+
+# URL
+## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
+url: http://www.guoyukun.cn
+root: /
+permalink: post/:title/
+tag_dir: tags
+archive_dir: archives
+category_dir: categories
+code_dir: downloads/code
+permalink_defaults:
+
+# Directory
+source_dir: source
+public_dir: public
+
+# Writing
+new_post_name: :year-:month-:day-:title.md # File name of new posts
+default_layout: post
+titlecase: false # Transform title into titlecase
+external_link: true # Open external links in new tab
+filename_case: 0
+render_drafts: false
+post_asset_folder: false
+relative_link: false
+highlight:
+  enable: true
+  line_number: true
+  tab_replace:
+
+# Category & Tag
+default_category: uncategorized
+category_map:
+  生活: life
+  开发: develop
+  运维管理: operation
+  生命在于折腾: zuo
+  工具: tools
+  数据库: database
+  操作系统: os
+  Linux: linux
+  Mac: mac
+  Java: java
+  JavaScript: js
+  NodeJS: nodejs
+
+tag_map:
+  Git: git
+  SVN: svn
+  Mac: mac
+  CentOS: centos
+  MySQL: mysql 
+  Octopress: octopress
+  EMS: ems
+  歌词: lrc
+  NodeJS: nodejs
+  Alfred: alfred
+  OmniGraffle: omnigraffle
+  原型设计: prototype-design
+  AppStore: appstore
+  Nginx: nginx
+  集群: cluster
+  破解: crack
+  树莓派: raspberrypi
+  DB2: db2
+  数据迁移: data-migration
+  插件开发: plugin-devleop
+  工具: tools
+  数据库: database
+  操作系统: os
+  Linux: linux
+  Mac: mac
+  Java: java
+  JavaScript: js
+  翻译: translate
+
+# Archives
+## 2: Enable pagination
+## 1: Disable pagination
+## 0: Fully Disable
+archive: 1
+category: 1
+tag: 1
+
+# Server
+## Hexo uses Connect as a server
+## You can customize the logger format as defined in
+## http://www.senchalabs.org/connect/logger.html
+port: 4000
+server_ip: localhost
+logger: false
+logger_format: dev
+
+# Date / Time format
+## Hexo uses Moment.js to parse and display date
+## You can customize the date format as defined in
+## http://momentjs.com/docs/#/displaying/format/
+date_format: YYYY/MM/DD
+time_format: H:mm:ss
+
+# Pagination
+## Set per_page to 0 to disable pagination
+per_page: 10
+pagination_dir: page
+
+# Disqus
+disqus_shortname:
+
+# Extensions
+## Plugins: https://github.com/hexojs/hexo/wiki/Plugins
+plugins:
+- hexo-generator-feed
+- hexo-generator-sitemap
+- hexo-local-image
+- hexo-qiniu-image
+- hexo-tag-emojis
+
+
+## Themes: https://github.com/hexojs/hexo/wiki/Themes
+theme: coney
+exclude_generator:
+
+# Deployment
+## Docs: http://hexo.io/docs/deployment.html
+deploy: 
+  type: github
+  repository: git@github.com:gyk001/gyk001.github.com.git
+  branch: master 
+
+emojis:
+  cdn: http://cdn.staticfile.org/emojify.js/0.9.5/emojis
+
+qiniu:
+  bucket: gyk001
+  offline: false
+  sync: true
+  image: 
+    folder: images
+    thumbnail: /thumbnail.jpg
+

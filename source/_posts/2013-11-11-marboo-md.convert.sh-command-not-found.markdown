@@ -1,0 +1,25 @@
+title: Marboo新建Markdown时报错
+date: 2013-11-11 21:10:16
+updated: 2013-11-11 21:10:16
+comments: true
+comment: true
+categories: 工具
+tags: [Mac,Markdown,Marboo]
+slug: marboo-md.convert.sh-command-not-found
+
+---
+
+新建笔记选择markdown会抛出如下错误：
+
+```
+media/osx-bin/md.convert.sh: line 10: markdown_py: command not found
+```
+
+解决方案也很简单:
+
+```bash
+sudo easy_install Pygments
+sudo easy_install markdown
+```
+
+收工！

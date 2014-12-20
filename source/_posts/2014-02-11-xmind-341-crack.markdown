@@ -1,0 +1,46 @@
+title: xmind-3.4.1破解
+date: 2014-02-11 01:08:00
+updated: 2014-02-11 01:08:00
+comments: true
+comment: true
+categories: 工具
+tags: [xmind,破解]
+slug: xmind-3.4.1-crack
+keywords: xmind crack
+
+---
+
+今天想把astah pro 6.8破解了，不过代码经过混淆，反编译后基本没法看，最终放弃了。
+
+用XMind画图时又突起邪念，
+网上已经有人破解过了，并且注册机也已经实现，不过两个人都没有放出破解补丁。
+
+经过摸索，终于完成了破解，奈何实在不想研究加密部分，所以没有做注册机。
+
+因为采用替换jar包的方式，所以Windows、Linux、Mac都应该是通用的。
+
+注意版本是最新的**XMind 2013(3.4.1)**，其他版本不一定能用。
+
+破解截图:
+
+{% qnimg crack/xmind-about.png %}
+
+<!--more-->
+<br/>
+
+{% qnimg crack/xmind.png %}
+
+使用方法: 
+
+1. 使用附件覆盖plugins目录下对应文件
+1. 点击菜单【帮助】》【序列号...】
+1. 点击链接【如已购买并激活，请查看/修改序列号！】
+1. 注册信息随便填
+1. 点击按钮【确定】
+
+
+[破解补丁下载][down_qn]
+
+PS. 序列号填`yisufuyou`才能激活Pro版的哦，其他都是Plus版
+
+[down_qn]: http://gyk001.u.qiniudn.com/file/net.xmind.verify_3.4.1.201401221918.jar

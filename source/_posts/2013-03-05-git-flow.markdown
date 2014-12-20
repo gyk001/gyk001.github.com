@@ -1,0 +1,65 @@
+---
+layout: post
+title: "git-flow"
+author: gyk001
+date: 2013-03-05 20:40
+updated: 2013-03-05 20:40
+comments: true
+comment: true
+categories: 工具
+tags: [Git,SVN,git-flow]
+slug: "git-flow"
+---
+
+同时开发的人越多，项目的复杂度越高，
+就越发受不了Svn的中央集权的管理方式，
+和其拷贝式分支、标签的实现。
+尤其是项目已经上线，部分人进行项目的bug修复，另一部分人同时进行项目的新特性开发，你会发现，Svn无异于一个梦魇。
+
+Git仅凭便利的本地库操作，强大的多远程库支持，优雅的工作现场就地切换足以让人一见钟情，上面说的三点只是从Svn切换至Git最容易感受到的几个特性。那Hg如何，无可否认Hg也很优秀，但Hg不支持轻量级分支让我果断放弃它了。如果作为一个开发者你还没有了解过Git，那么我强烈建议你体验一下Git的灵活和强大，你一定会爱上它！
+
+今天要说的不是Git本身，而是一款git扩展([git-flow][]，一个让利器升华成神器的东东，又或者说一个让神器走入人间的西西。
+
+git-flow相当于多组预定义git命令脚本，可以用一个命令完成串很复杂的命令，比如要开发一个特性分支、给某个稳定版本打补丁或者将开发的新特性生成一个稳定版本，这些原来需要很多步骤的操作，git-flow一句搞定。
+
+什么，你完全没有看懂？！
+
+好吧，反正我用了，您随意...
+
+<!-- more --> 
+
+先安装，有了[HomeBrew][]，So easy!!!
+```bash
+brew install git-flow
+```
+假如出现`shFlags/src/shflags`错误，如
+```sh
+➜ git flow init
+/usr/local/bin/gitflow-shFlags: line 1: shFlags/src/shflags: No such file or directory
+/usr/local/bin/git-flow: line 78: FLAGS: command not found
+fatal: 'flow' appears to be a git command, but we were not
+able to execute it. Maybe git-flow is broken?
+```
+执行以下代码
+```bash
+rm -f /usr/local/bin/gitflow-shFlags
+cp /Library/Caches/Homebrew/git-flow--git/shFlag /usr/local/bin/gitflow-shFlags
+```
+
+如果你也用[oh-my-zsh][]，可以打开git-flow插件以获取补全提示，
+开启方法很简单，在`~/.zshrc`的`plugins`里加入`git-flow`即可
+```sh
+plugins=(git git-flow)
+```
+
+至于使用，挖个坑下回再说
+
+    坑
+
+好吧，我承认这只是一个牢骚贴，我实在是受不了公司的Svn了。。。:(
+
+
+[git-flow]:https://github.com/nvie/gitflow
+[HomeBrew]:http://mxcl.github.com/homebrew/
+[oh-my-zsh]:https://github.com/robbyrussell/oh-my-zsh
+

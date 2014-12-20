@@ -1,0 +1,7 @@
+{
+    "access_key": "UxrCSUaMtQrRrOj0a_QGYrAHGsEmS75yD8aRXjtb",
+    "secret_key": "97UV6C5bcur9oiP_QEQU868gh4OQmwDzOorPdXU5",
+    "bucket": "gyk001",
+    "sync_dir": "source/cdn",
+    "debug_level": 1
+}
