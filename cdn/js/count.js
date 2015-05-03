@@ -1,0 +1,2 @@
+var DISQUSWIDGETS,disqus_domain,disqus_shortname;
+typeof DISQUSWIDGETS=="undefined"&&(DISQUSWIDGETS=function(){var b={},m=document.getElementsByTagName("HEAD")[0]||document.body,i={},l={identifier:1,url:2};b.domain="disqus.com";b.forum="";b.getCount=function(){var a,c;a=encodeURIComponent;var n=document.location.protocol+"//"+b.forum+"."+b.domain+"/count-data.js?",f=[],d=0,j=10;c=document.getElementsByTagName("A");for(var h,g,e,k=0;k

@@ -1,0 +1,661 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+  <meta name="baidu_union_verify" content="36e674f9f57ec43914061492413230f2">
+  
+  
+  
+  
+    <title>代码库从SVN迁移到Git | { Do Something }</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    
+    <meta name="author" content="guoyukun">
+    
+    <meta name="description" content="记录一下代码库从SVN迁移到Git的过程，可以保留所有的提交日志和提交人信息
+大体流程如下：
+
+准备一个提交人的对照表
+利用git svn命令将SVN项目导出为Git项目
+检查导出的项目有无问题
+给Git项目添加默认远程仓库并推送到远程仓库中
+
+下面给出具体步骤：
+原SVN地址为：https://svn.wspt.guo:8444/ProjectInSVN
+目标Git项目地址：git@git.wspt.guo:ProjectInGit.git">
+    
+    
+    
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="meinaozi" />
+    <meta name="twitter:title" content="代码库从SVN迁移到Git | { Do Something }" />
+      
+    
+    
+    <link rel="alternate" href="/atom.xml" title="{ Do Something }" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/favicon.ico">
+    
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+    
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            var _bdId ='519f6bcea13a06bb44fb9fd6f4d1d540';
+             hm.src = "//hm.baidu.com/hm.js?" + _bdId;
+             var s = document.getElementsByTagName("script")[0]; 
+             s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+     
+    <link type="text/css" rel="stylesheet" href="http://static.duoshuo.com/styles/embed.default.css?19128c28.css">
+<style type="text/css">
+#ds-thread {
+  padding-left: 6px;
+}
+
+#ds-thread #ds-reset .ds-post-self {
+  padding: 10px 0 10px 10px;
+}
+
+#ds-thread #ds-reset .ds-highlight {
+  font-family: Microsoft YaHei, "Helvetica Neue", Helvetica, Arial, Sans-serif;
+  ;font-size: 100%;
+  color: #6D6D6B !important;
+}
+#ds-thread #ds-reset a.ds-highlight: hover {
+  color: #696a52 !important;
+}
+
+
+#ds-thread #ds-reset ul.ds-comments-tabs li.ds-tab a.ds-current {
+  border: 0px;
+  color: #6D6D6B;
+  text-shadow: none;
+  background: #F3F3F3
+}
+
+#ds-thread #ds-reset ul.ds-comments-tabs li.ds-tab a.ds-current: hover {
+  color: #696a52;
+  background: #F2F2F2
+}
+#ds-thread #ds-reset li.ds-post,#ds-thread #ds-reset #ds-hot-posts {
+  overflow: visible
+}
+
+#ds-thread #ds-reset li.ds-post,#ds-thread #ds-reset .ds-post-self {
+  border: 0 !important;
+}
+#ds-reset .ds-avatar, #ds-thread #ds-reset ul.ds-children .ds-avatar {
+  top: 15px;
+  left: -20px;
+  padding: 5px;
+  width: 36px;
+  height: 36px;
+  box-shadow: -1px 0 1px rgba(0,0,0,.15) inset;
+  border-radius: 46px;
+  background: #FAFAFA;
+}
+#ds-thread .ds-avatar a {
+  display: inline-block;
+  padding: 1px;
+  width: 32px;
+  height: 32px;
+  border: 1px solid #b9baa6;
+  border-radius: 50%;
+  background-color: #fff !important
+}
+#ds-thread .ds-avatar a: hover {
+  }
+#ds-thread .ds-avatar > img {
+  margin: 2px 0 0 2px
+}
+#ds-thread #ds-reset .ds-replybox {
+  box-shadow: none;
+}
+#ds-thread #ds-reset ul.ds-children .ds-replybox.ds-inline-replybox a.ds-avatar,
+#ds-reset .ds-replybox.ds-inline-replybox a.ds-avatar {
+  left: 0;
+  top: 0;
+  padding: 0;
+  width: 32px !important;
+  height: 32px !important;
+  background: none;
+  box-shadow: none;
+}
+#ds-reset .ds-replybox.ds-inline-replybox a.ds-avatar img {
+  width: 32px !important;
+  height: 32px !important;
+  border-radius: 50%;
+}
+#ds-reset .ds-replybox a.ds-avatar,
+#ds-reset .ds-replybox .ds-avatar img {
+  padding: 0;
+  width: 50px !important;
+  height: 50px !important;
+  border-radius: 5px;
+}
+#ds-reset .ds-avatar img {
+  width: 32px !important;
+  height: 32px !important;
+  border-radius: 32px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.22);
+  -webkit-transition: .8s all ease-in-out;
+  -moz-transition: .4s all ease-in-out;
+  -o-transition: .4s all ease-in-out;
+  -ms-transition: .4s all ease-in-out;
+  transition: .4s all ease-in-out;
+}
+.ds-post-self:hover .ds-avatar img {
+  -webkit-transform: rotateX(360deg);
+  -moz-transform: rotate(360deg);
+  -o-transform: rotate(360deg);
+  -ms-transform: rotate(360deg);
+  transform: rotate(360deg);
+}
+#ds-thread #ds-reset .ds-comment-body {
+  -webkit-transition-delay: initial;
+  -webkit-transition-duration: 0.4s;
+  -webkit-transition-property: all;
+  -webkit-transition-timing-function: initial;
+  background: #F7F7F7;
+  padding: 15px 15px 15px 47px;
+  border-radius: 5px;
+  box-shadow: #B8B9B9 0 1px 3px;
+  border: white 1px solid;
+}
+#ds-thread #ds-reset ul.ds-children .ds-comment-body {
+  padding-left: 15px;
+}
+#ds-thread #ds-reset .ds-comment-body p {
+  color: #787968
+}
+#ds-thread #ds-reset .ds-comments {
+  border-bottom: 0px;
+}
+#ds-thread #ds-reset .ds-powered-by {
+  display: none;
+}
+#ds-thread #ds-reset .ds-comments a.ds-user-name {
+  font-weight: normal;
+  color: #3D3D3D !important;
+}
+#ds-thread #ds-reset .ds-comments a.ds-user-name: hover {
+  color: #D32 !important;
+}
+#ds-thread #ds-reset #ds-bubble {
+  display: none !important
+}
+#ds-thread #ds-reset #ds-hot-posts {
+  border: 0
+}
+#ds-reset #ds-hot-posts .ds-gradient-bg {
+  background: none;
+}
+#ds-thread #ds-reset .ds-comment-body:hover {
+  background-color: #F1F1F1;
+  -webkit-transition-delay: initial;
+  -webkit-transition-duration: 0.4s;
+  -webkit-transition-property: all;
+  -webkit-transition-timing-function: initial;
+}
+
+</style>
+</head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="{ Do Something }">{ Do Something }</a></h1>
+				<a class="blog-motto">躲在某座城，想念某个人</a>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">首页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+					<li>
+					
+                                            <form class="search" action=http://zhannei.baidu.com/cse/search target="_blank">
+                                            <label>Search</label>
+                                        <input name="s" type="hidden" value= null ><input type="text" name="q" size="30" placeholder="搜索"><br>
+					
+					</li>
+				</ul>
+                            </nav>			
+</div>
+
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/post/svn-migrate-git/" title="代码库从SVN迁移到Git" itemprop="url">代码库从SVN迁移到Git</a>
+  </h1>
+  <p class="article-author">By
+    
+      <a href="http://www.guoyukun.cn" title="guoyukun">guoyukun</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2013-06-04T16:24:57.000Z" itemprop="datePublished">2013-06-05</time>
+    更新日期:<time datetime="2013-06-04T16:24:57.000Z" itemprop="dateModified">2013-06-05</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+		</div>
+		
+		<p>记录一下代码库从SVN迁移到Git的过程，<br>可以保留所有的提交日志和提交人信息</p>
+<p>大体流程如下：</p>
+<ol>
+<li>准备一个提交人的对照表</li>
+<li>利用<code>git svn</code>命令将SVN项目导出为Git项目</li>
+<li>检查导出的项目有无问题</li>
+<li>给Git项目添加默认远程仓库并推送到远程仓库中</li>
+</ol>
+<p>下面给出具体步骤：</p>
+<p>原SVN地址为：<code>https://svn.wspt.guo:8444/ProjectInSVN</code></p>
+<p>目标Git项目地址：<code>git@git.wspt.guo:ProjectInGit.git</code><br><a id="more"></a></p>
+<ol>
+<li><p>制作authors.txt,内容为所有提交者的对照表</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="setting">guoyk=<span class="value">guoyukun</span></span></span><br><span class="line"><span class="setting">zhangs=<span class="value">zhangsan</span></span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>2.</p>
+ <figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">git</span> svn clone <span class="url">https://svn.wspt.guo:8444/ProjectInSVN</span> --authors-file=authors.txt --<span class="built_in">no</span>-metadata ProjectInGit</span><br></pre></td></tr></table></figure>
+<p> <code>--no-metadata</code>不会生成提交日志里附加的ID号，清爽一点</p>
+<p> 该步骤中可能出现  <code>Author: {XXX} not defined in authors.txt file</code></p>
+<p> 解决方案为在authors里添加xxx的记录</p>
+<p> 如 <code>XXX = XXXinGit</code></p>
+<p> 删除 ProjectInGit文件夹，重新执行以上命令</p>
+<p>3.</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ProjectInGit</span><br><span class="line"><span class="comment"># 检查日志是否正常</span></span><br><span class="line">git <span class="built_in">log</span></span><br><span class="line"><span class="comment"># 清理版本库垃圾</span></span><br><span class="line">git gc</span><br></pre></td></tr></table></figure>
+<p>4.</p>
+ <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin git@git.wspt.guo:ProjectInGit.git</span><br><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>  
+	</div>
+		<footer class="article-footer clearfix">
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/git/">Git</a><a href="/tags/svn/">SVN</a>
+  </div>
+
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/tools/">工具</a>
+</div>
+
+
+
+<div class="article-share" id="share">
+
+  <div data-url="http://www.guoyukun.cn/post/svn-migrate-git/" data-title="代码库从SVN迁移到Git | { Do Something }" data-tsina="null" class="share clearfix">
+  </div>
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/post/homebrew-on-mac-osx-mavericks/" title="Homebrew在10.9 Mavericks上的问题">
+  <!--<strong>PREVIOUS:</strong><br/>-->
+  <span>
+  Homebrew在10.9 Mavericks上的问题</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/post/alfred2-switch-location/"  title="Alfred2切换网络位置插件,支持中文">
+ <!--<strong>NEXT:</strong><br/> -->
+ <span>Alfred2切换网络位置插件,支持中文
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section class="comment">
+	<div class="ds-thread" data-title="代码库从SVN迁移到Git" data-thread-key="svn-migrate-git" data-author-key="guoyukun" data-url="http://www.guoyukun.cn/post/svn-migrate-git"></div>
+</section>
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+  
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+<div id="authorInfo">
+	
+		<div class="author-logo"></div>		
+	
+	<div class="social-list" class="clearfix">
+		
+		<a href="http://weibo.com/2434291967" target="_blank" title="weibo"></a>
+		
+		
+		<a href="https://twitter.com/meinaozi" target="_blank" title="twitter"></a>
+		
+		
+		<a href="https://github.com/gyk001" target="_blank" title="github"></a>
+		
+		
+		<a href="https://www.facebook.com/guoyukun" target="_blank" title="facebook"></a>
+		
+		
+	</div>
+</div>
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+  
+<div class="widget">
+  <p class="asidetitle">近期评论</p>
+    
+<ul class="entry ds-recent-comments" data-num-items="8" data-show-avatars="0" data-show-time="1" data-show-admin="0" data-excerpt-length="70"></ul>
+</div>
+
+
+  
+<div class="categorieslist">
+<p class="asidetitle">近期文章</p>
+  <ul class="entry">
+    
+      <li>
+        <a href="/post/xbmcswift-commandline/">[译]xbmcswift2命令行</a>
+      </li>
+    
+      <li>
+        <a href="/post/xbmcswift-installation/">[译] 安装 XBMC Swift2</a>
+      </li>
+    
+      <li>
+        <a href="/post/xbmc-plugin-start/">XBMC插件开发构想</a>
+      </li>
+    
+      <li>
+        <a href="/post/db2-import-esapsed-time/">DB2 IMPORT耗时记录</a>
+      </li>
+    
+      <li>
+        <a href="/post/raspberry-ntpdate/">树莓派矫正日期时间</a>
+      </li>
+    
+  </ul>
+</div>
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+			<li><a href="/categories/tools/" title="工具">工具<sup>11</sup></a></li>
+		
+			<li><a href="/categories/develop/" title="开发">开发<sup>5</sup></a></li>
+		
+			<li><a href="/categories/os/" title="操作系统">操作系统<sup>2</sup></a></li>
+		
+			<li><a href="/categories/zuo/" title="生命在于折腾">生命在于折腾<sup>4</sup></a></li>
+		
+			<li><a href="/categories/life/" title="生活">生活<sup>8</sup></a></li>
+		
+			<li><a href="/categories/operation/" title="运维管理">运维管理<sup>4</sup></a></li>
+		
+		</ul>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+    
+            <p class="copyright"> © 2015 
+		
+		<a href="http://www.guoyukun.cn" target="_blank" title="guoyukun">guoyukun</a>
+		
+            && Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> && Theme by <a href="http://gengbiao.me" target="_blank" title="coney">coney</a>
+            </div>
+</footer>
+    <script src="/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+    c.click(function(){
+      ta.css('display', 'block').addClass('fadeIn');
+    });
+    o.click(function(){
+      ta.css('display', 'none');
+    });
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,320-$(this).scrollTop()));
+    });
+  };
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"guoyukun",theme:"none"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+
+<script>
+    
+        var _bdImg = '4';
+    
+    window._bd_share_config={
+        "common":{
+            "bdSnsKey":{
+
+            },
+            "bdText":"",
+            "bdMini":"2",
+            "bdMiniList":[
+                "qzone",
+                "tsina",
+                "weixin",
+                "renren",
+                "tqq",
+                "tieba",
+                "douban",
+                "sqq",
+                "diandian",
+                "huaban",
+                "youdao",
+                "mail",
+                "ty",
+                "fbook",
+                "twi",
+                "linkedin",
+                "copy",
+                "print"
+            ],
+            "bdPic":"",
+            "bdStyle":"0",
+            "bdSize":"16"
+        },
+        "slide":{
+            "type":"slide",
+            "bdImg":_bdImg,
+            "bdPos":"right",
+            "bdTop":"350"
+        },
+        "image":{
+            "viewList":[
+                "weixin",
+                "qzone",
+                "tsina",
+                "renren",
+                "douban",
+                "tqq"
+            ],
+            "viewText":"分享：",
+            "viewSize":"16"
+        },
+        "selectShare":{
+            "bdContainerClass":null,
+            "bdSelectMiniList":[
+                "weixin",
+                "qzone",
+                "tsina",
+                "renren",
+                "douban",
+                "tqq"
+            ]
+        }
+    };
+    with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+
+
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-39023568-1', 'null');  
+ga('send', 'pageview');
+</script>
+
+
+  </body>
+</html>
+
