@@ -10,7 +10,7 @@ slug: "alfred2-switch-location"
 
 ---
 
-{% limg switch_list.jpg %}
+
 
 因为经常在公司、家里和机房这几个地方换来换去，
 基本都是静态IP而且网络配置比如网段什么的都不一样，所以每次都要手动切换网络位置。

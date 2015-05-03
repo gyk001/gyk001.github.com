@@ -12,7 +12,7 @@ slug: linux-sqlplus-history-with-rlwrap
 众所周知，Linux下面的SQLPlus不支持上下键历史记录，左右键移动光标，
 作为一个命令行工具来说，Linux版竟然不如Windows版好用，真是悲哀 
 
-{% emoji disappointed 48 %}
+
 
 
 ## 神器`rlwrap`出场。

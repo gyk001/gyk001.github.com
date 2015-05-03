@@ -13,7 +13,6 @@ slug: mac-app-store-504-nginx
 
 ---
 
-{% emoji scream 64 %}
 
 Gateway Time-out, 看来苹果也没有处理好后端负载呀，
 不过至少应该自定义一下504页面吧！
